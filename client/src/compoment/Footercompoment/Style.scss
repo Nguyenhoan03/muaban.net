@@ -1,0 +1,28 @@
+ul.ulfootercompoment a{
+    text-decoration: none;
+    color:black;
+}
+.ulfootercompoment{
+    padding-left: 0px;
+ li {
+    width:100%;
+    list-style: none;
+    text-indent: -1em;
+    padding-left: 1em; 
+}
+li:hover a{
+    color: tomato;
+}
+
+}
+
+ul li{
+    list-style: none;
+    text-decoration: none;
+}
+
+.footercompoment_botto {
+    img{
+        margin-left: 10px;
+    }
+}
