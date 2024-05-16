@@ -1,0 +1,142 @@
+.headerdetailpage_title{
+    p,h1{
+        justify-content: center;
+        align-items: center;
+        padding-left: 15px;
+    }
+
+}
+
+.infordetailpage {
+    p{
+        padding-left: 15px;
+    }
+}
+
+.bottomRecruitment {
+    button{
+        margin-top: 5px;
+    }
+}
+.sticky-col {
+    position: sticky;
+    top: 10px;
+}
+
+//content ứng tuyển
+.file-upload {
+    position: relative;
+    display: inline-block;
+}
+
+.file-upload input[type="file"] {
+    display: none; /* Ẩn input file gốc */
+}
+
+.file-upload label {
+    background-color: #4CAF50; /* Màu nền của nút */
+    color: white; /* Màu chữ */
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer; /* Hiệu ứng con trỏ khi di chuột qua */
+    display: inline-block;
+}
+
+.file-upload label:hover {
+    background-color: #45a049; /* Màu khi hover */
+}
+
+.input-container {
+    position: relative;
+    width: 90%; /* You can adjust the width as needed */
+  }
+  
+  .custom-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .custom-label {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #888;
+    transition: all 0.3s ease;
+  }
+  
+  .custom-input:focus + .custom-label,
+  .custom-input:not(:placeholder-shown) + .custom-label {
+    top: 5px;
+    font-size: 12px;
+    color: #333;
+  }
+  
+
+  .form-alert {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999; /* Ensure the form appears on top of other content */
+    background-color: rgba(255, 255, 255, 0.95); /* Slightly increased opacity */
+    padding: 30px; /* Increased padding for more space */
+    border-radius: 15px; /* Increased border radius for a smoother look */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Softer shadow for a modern look */
+    max-width: 35%;
+    height: 600px;
+    overflow-y: auto; /* Enable scrolling */
+    box-sizing: border-box; /* Ensure padding doesn't affect width */
+  }
+  
+  .form-alert::-webkit-scrollbar {
+    width: 5px; /* Width of the entire scrollbar */
+  }
+  
+  .form-alert::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Color of the track */
+    border-radius: 15px; /* Round the track edges */
+  }
+  
+  .form-alert::-webkit-scrollbar-thumb {
+    background: #888; /* Color of the thumb */
+    border-radius: 15px; /* Round the thumb edges */
+  }
+  
+  .form-alert::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Color of the thumb when hovered */
+  }
+  
+  /* Firefox */
+  .form-alert {
+    scrollbar-width: thin; /* Make scrollbar thinner */
+    scrollbar-color: #888 #f1f1f1; /* Thumb and track color */
+  }
+
+  
+  .radio-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 5px;
+    margin-left: 10px;
+  }
+  
+  .radio-group label {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 150%;
+    display: flex;
+    align-items: center;
+    margin: 0; /* Remove default margin */
+    margin-left: 10px;
+  }
+  
+  .radio-group input[type="radio"] {
+    margin-right: 5px; 
+    margin-top: 0px;
+  }
+  

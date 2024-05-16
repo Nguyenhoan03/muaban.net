@@ -1,0 +1,64 @@
+.containerpostnews {
+    background-color: #ECF6FE;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: white;
+    font-size: 16px;
+    color: #333;
+    margin-top: 10px;
+  }
+  
+  .select:focus {
+    border-color: #007BFF;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  
+.dmdt{
+  border-bottom: 1px solid gray;
+  margin-top: 15px;
+  padding-bottom: 15px;
+  margin-left: 15px;
+}
+
+.danhmucdt{
+  border-radius: 15px;
+  position: fixed;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  width:550px;
+  height:550px;
+  overflow: scroll;
+  overflow-x: hidden;
+  opacity: 2;
+  z-index: 10;
+}
+
+.danhmucdt::-webkit-scrollbar {
+  width: 5px; /* Width of the entire scrollbar */
+}
+
+.danhmucdt::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Color of the track */
+  border-radius: 15px; /* Round the track edges */
+}
+
+.danhmucdt::-webkit-scrollbar-thumb {
+  background: #888; /* Color of the thumb */
+  border-radius: 15px; /* Round the thumb edges */
+}
+
+.danhmucdt::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Color of the thumb when hovered */
+}
+
+

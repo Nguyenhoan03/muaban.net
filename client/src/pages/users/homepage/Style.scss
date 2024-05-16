@@ -1,0 +1,144 @@
+
+.container-homepage{
+    background-color: #F5F7F9;
+    width:100%;
+}
+
+.bodyhomepage{
+      width:75%;
+      margin: auto;
+    
+}
+
+
+.bodyhomepage_header{
+   
+    padding-bottom: 20px; 
+    border-radius: 20px;   
+    background-color: white;
+    display: flex;
+    display: block;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+
+    img{
+       width: 96px;
+       height: 96px;
+       border-radius: 10px;
+    }
+    .bodyhomepage_header_img{
+         align-items: center;
+         margin: auto;
+         margin-top: 20px;
+    
+  
+    p{
+        width:96px;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+    }
+    }
+}
+//css dots slick
+.carousel-container {
+    position: relative;
+}
+
+.slick-dots {
+    position: absolute;
+    bottom: 10px; /* Điều chỉnh vị trí theo y tùy ý */
+    width: 100%;
+    text-align: center;
+}
+
+.slick-dots li {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+
+
+//
+
+.news_outstanding{
+    background-color: #FEE4CC;
+    border-radius: 7px;
+
+    h2{
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 32px;
+        margin-right: 10px;
+
+     
+    }
+}
+
+.line-clamp{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    a{
+    text-decoration: none;
+    color:black;
+}
+}
+.information{
+    width:95%;
+    text-align: center;
+}
+.address {
+    
+    display: flex;
+    justify-content: space-between;
+    width:95%;
+    p{
+        font-size: 13px;
+        
+    }
+    .address_place{
+        width:85px;
+        display: inline-block;
+        overflow: hidden;
+        white-space: nowrap; /* Prevent text from wrapping */
+        text-overflow: ellipsis;
+    }
+}
+
+.news_outstanding_card:hover{
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); /* Box shadow effect */
+    .line-clamp{
+        color: tomato;
+    }
+}
+
+.btn-bdsvct {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* To space the buttons */
+   
+}
+.btn-bdsvct button:hover{
+    opacity: 1;
+    background-color: black;
+   
+}
+
+.btn-bdsvct button:hover svg {
+    /* Your styles for the SVG when button is hovered */
+    fill: red; /* Change the color of the icon */
+    /* Add any other styles you need */
+  }
+  
+  .next-arrow:hover {
+    opacity: 1; /* Khi hover vào, đặt opacity thành 1 */
+  }
+  
+  .prev-arrow:hover {
+    opacity: 1; /* Khi hover vào, đặt opacity thành 1 */
+  }
