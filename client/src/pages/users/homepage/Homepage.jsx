@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import './Style.scss'
 import { RiInformation2Fill } from "react-icons/ri";
 import { FaRegHeart, FaChevronRight, FaAngleRight } from "react-icons/fa";
@@ -8,6 +8,8 @@ import { MdOutlinePlace } from "react-icons/md";
 import { Link } from 'react-router-dom';
 import { FaAngleDoubleRight, FaAngleDoubleLeft } from "react-icons/fa";
 import { useState } from 'react';
+import { getallcate } from '../../../service/categoryservice.js'
+import {gethomepageproduct} from '../../../service/productservice.js'
 
 import Slickslider from '../../../compoment/Slickslider/Slickslider.jsx';
 export default function Homepage() {
@@ -67,65 +69,126 @@ export default function Homepage() {
 
   const ref = useRef(null);
 
+  const [danhmuccate, setdanhmuccate] = useState([]);
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const cate = await getallcate();
+        // Kiểm tra nếu cate là một mảng trước khi gán vào state
+        if (Array.isArray(cate)) {
+          setdanhmuccate(cate);
+        } else {
+          console.error('Error: categories is not an array');
+        }
+      } catch (error) {
+        console.error('Error fetching categories:', error);
+      }
+    };
+
+
+    fetchCategories();
+  }, []);
+  const [productpostvips,setproductpostvips] = useState([]);
+  useEffect(() => {
+    const fetchproductvips = async () => {
+        try {
+            const response = await gethomepageproduct();
+            setproductpostvips(response.response);
+        } catch (error) {
+            console.error('Error fetching categories:', error);
+        }
+    };
+
+    fetchproductvips();
+}, []);
+
+
+const [productbdsvct,setproductbdsvct] = useState([]);
+  useEffect(() => {
+    const fetchproductvips = async () => {
+        try {
+            const response = await gethomepageproduct();
+            setproductbdsvct(response.bdsvct);
+        } catch (error) {
+            console.error('Error fetching categories:', error);
+        }
+    };
+
+    fetchproductvips();
+}, []);
+
+const [productvlnb,setproductvlnb] = useState([]);
+  useEffect(() => {
+    const fetchproductvlnb = async () => {
+        try {
+            const response = await gethomepageproduct();
+            setproductvlnb(response.vieclamnoibat);
+        } catch (error) {
+            console.error('Error fetching categories:', error);
+        }
+    };
+
+    fetchproductvlnb();
+}, []);
+
+
+const [productotobanvachothue,setproductotobanvachothue] = useState([]);
+  useEffect(() => {
+    const fetchproductotbvct = async () => {
+        try {
+            const response = await gethomepageproduct();
+            setproductotobanvachothue(response.otobanvachothue);
+        } catch (error) {
+            console.error('Error fetching categories:', error);
+        }
+    };
+
+    fetchproductotbvct();
+}, []);
+
+
+const [productxmbvct,setproductxmbvct] = useState([]);
+  useEffect(() => {
+    const fetchproductxmbvct = async () => {
+        try {
+            const response = await gethomepageproduct();
+            setproductxmbvct(response.xemaybanvachothue);
+        } catch (error) {
+            console.error('Error fetching categories:', error);
+        }
+    };
+
+    fetchproductxmbvct();
+}, []);
+
+
   return (
     <div className="container-homepage">
       <div className='bodyhomepage'>
         <div className="bodyhomepage_header mt-2">
-          <div className="row ">
-            <div className="bodyhomepage_header_img col-md-2">
-
-              <img className='img-fluid' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwzi1VRLFRTyd989y4S_3XP9rbUAkezZOtM3t-1fcfnw&s" alt="" />
-              <p>Bất động sản</p>
-
-            </div>
-
-            <div className="bodyhomepage_header_img col-md-2">
-              <img className='img-fluid' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwzi1VRLFRTyd989y4S_3XP9rbUAkezZOtM3t-1fcfnw&s" alt="" />
-              <p>Bất động sản</p>
-            </div>
-
-            <div className="bodyhomepage_header_img col-md-2">
-              <img className='img-fluid' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwzi1VRLFRTyd989y4S_3XP9rbUAkezZOtM3t-1fcfnw&s" alt="" />
-              <p>Bất động sản</p>
-            </div>
-
-            <div className="bodyhomepage_header_img col-md-2">
-              <img className='img-fluid' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwzi1VRLFRTyd989y4S_3XP9rbUAkezZOtM3t-1fcfnw&s" alt="" />
-              <p>Bất động sản</p>
-            </div>
-
-            <div className="bodyhomepage_header_img col-md-2">
-              <img className='img-fluid' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwzi1VRLFRTyd989y4S_3XP9rbUAkezZOtM3t-1fcfnw&s" alt="" />
-              <p>Bất động sản</p>
-            </div>
+          <div className="row">
+            {danhmuccate.slice(0, 5).map((cateall) => (
+              <div className="bodyhomepage_header_img col-md-2">
+                  <Link>
+                  <img className='img-fluid' src={cateall.image} alt="" />
+                  <p>{cateall.namecategory}</p>
+              </Link>
+                </div>
+            ))}
           </div>
           <div className="row">
-            <div className="bodyhomepage_header_img col-md-2">
-              <img className='img-fluid' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwzi1VRLFRTyd989y4S_3XP9rbUAkezZOtM3t-1fcfnw&s" alt="" />
-              <p>Bất động sản</p>
-            </div>
-
-            <div className="bodyhomepage_header_img col-md-2">
-              <img className='img-fluid' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwzi1VRLFRTyd989y4S_3XP9rbUAkezZOtM3t-1fcfnw&s" alt="" />
-              <p>Bất động sản</p>
-            </div>
-
-            <div className="bodyhomepage_header_img col-md-2">
-              <img className='img-fluid' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwzi1VRLFRTyd989y4S_3XP9rbUAkezZOtM3t-1fcfnw&s" alt="" />
-              <p>Bất động sản</p>
-            </div>
-
-            <div className="bodyhomepage_header_img col-md-2">
-              <img className='img-fluid' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwzi1VRLFRTyd989y4S_3XP9rbUAkezZOtM3t-1fcfnw&s" alt="" />
-              <p>Bất động sản</p>
-            </div>
-
-            <div className="bodyhomepage_header_img col-md-2">
-              <img className='img-fluid' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwzi1VRLFRTyd989y4S_3XP9rbUAkezZOtM3t-1fcfnw&s" alt="" />
-              <p>Bất động sản</p>
-            </div>
+            {danhmuccate.slice(5).map((cateall) => (
+              <div className="bodyhomepage_header_img col-md-2">
+                  <Link>
+                  <img className='img-fluid' src={cateall.image} alt="" />
+                  <p>{cateall.namecategory}</p>
+              </Link>
+                </div>
+            ))}
           </div>
         </div>
+
         <div className="carousel-container mt-3" >
           <Slider {...settings}>
             <div>
@@ -145,165 +208,35 @@ export default function Homepage() {
           <h2 className='pt-3 pb-3 px-2'>Tin đăng nổi bật <RiInformation2Fill style={{ textAlign: 'center', alignItems: 'center' }} /></h2>
 
           <div className="row" style={{ width: '85%', margin: 'auto' }}>
-            <div className="col-md-3 mt-3 ">
-              <div className="mx-2 border-radius-5 news_outstanding_card border-radius-3" style={{ width: 190, backgroundColor: 'white' }}>
-                <div className="" style={{ position: 'relative', alignItems: 'center', alignContent: 'center', justifyContent: 'center', textAlign: 'center' }}>
-                  <img style={{ display: 'inline-block', width: 165, height: 130 }} src="https://cloud.muaban.net/images/thumb-detail/2024/02/19/034/9fab57e6a5674be2848b0b08d70b5ca0.jpg" alt="" />
-                  <p style={{ position: 'absolute', top: 5, left: 10, backgroundColor: '#BF1D28', color: 'white', fontWeight: 650, fontSize: 12, borderRadius: 4, width: 57, textAlign: 'center' }}>Nổi bật</p>
-                  <p style={{ position: 'absolute', top: 0, right: 10 }}><FaRegHeart /></p>
+            {productpostvips.map((pvips, index) => (
+                 <div key={index} className="col-md-20 mt-3">
+                  <Link style={{textDecoration:'none',color:'black'}} to={`/${pvips.Category.namecategory}/${pvips.title}`}>
+                    <div className="mx-2 border-radius-5 news_outstanding_card border-radius-3" style={{ width: 190, backgroundColor: 'white' }}>
+                        <div style={{ position: 'relative', alignItems: 'center', textAlign: 'center' }}>
+                            <img style={{ display: 'inline-block', width: 165, height: 130 }} src={pvips.img} alt="" />
+                            <p style={{ position: 'absolute', top: 5, left: 10, backgroundColor: '#BF1D28', color: 'white', fontWeight: 650, fontSize: 12, borderRadius: 4, width: 57, textAlign: 'center' }}>
+                                {pvips.loaidv}
+                            </p>
+                            <p style={{ position: 'absolute', top: 0, right: 10 }}>
+                                <FaRegHeart />
+                            </p>
+                        </div>
+                        <div className="information">
+                            <p className="line-clamp">
+                                <Link to={`/${pvips.Category.namecategory}/${pvips.title}`}>{pvips.title}</Link>
+                            </p>
+                            <p className="text-danger" style={{ fontWeight: 650, fontSize: 14 }}>
+                                {pvips.luongtoithieu} - {pvips.luongtoida}
+                            </p>
+                        </div>
+                        <div className="address">
+                            <p><IoMdClock /> {pvips.createdAt}</p>
+                            <p className="address_place"><MdOutlinePlace /> {pvips.diachi}</p>
+                        </div>
+                    </div>
+                    </Link>
                 </div>
-
-                <div className="information ">
-                  <p className='line-clamp'><Link> Công ty BB Giấy Kiến An cần tuyển lao động phổ thông </Link></p>
-                  <p className='text-danger ' style={{ fontWeight: 650, fontSize: 14 }}>8 Tỷ 500 triệu</p>
-
-                </div>
-                <div className="address">
-                  <p><IoMdClock /> Hôm nay</p>
-                  <p className='address_place'><MdOutlinePlace /> Quận 6, Thủ đức,HCM</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="col-md-3 mt-3 ">
-              <div className="mx-2 border-radius-5 news_outstanding_card border-radius-3" style={{ width: 190, backgroundColor: 'white' }}>
-                <div className="" style={{ position: 'relative', alignItems: 'center', alignContent: 'center', justifyContent: 'center', textAlign: 'center' }}>
-                  <img style={{ display: 'inline-block', width: 165, height: 130 }} src="https://cloud.muaban.net/images/thumb-detail/2024/02/19/034/9fab57e6a5674be2848b0b08d70b5ca0.jpg" alt="" />
-                  <p style={{ position: 'absolute', top: 5, left: 10, backgroundColor: '#BF1D28', color: 'white', fontWeight: 650, fontSize: 12, borderRadius: 4, width: 57, textAlign: 'center' }}>Nổi bật</p>
-                  <p style={{ position: 'absolute', top: 0, right: 10 }}><FaRegHeart /></p>
-                </div>
-
-                <div className="information ">
-                  <p className='line-clamp'><Link> Công ty BB Giấy Kiến An cần tuyển lao động phổ thông </Link></p>
-                  <p className='text-danger ' style={{ fontWeight: 650, fontSize: 14 }}>8 Tỷ 500 triệu</p>
-
-                </div>
-                <div className="address">
-                  <p><IoMdClock /> Hôm nay</p>
-                  <p className='address_place'><MdOutlinePlace /> Quận 6, Thủ đức,HCM</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="col-md-3 mt-3 ">
-              <div className="mx-2 border-radius-5 news_outstanding_card border-radius-3" style={{ width: 190, backgroundColor: 'white' }}>
-                <div className="" style={{ position: 'relative', alignItems: 'center', alignContent: 'center', justifyContent: 'center', textAlign: 'center' }}>
-                  <img style={{ display: 'inline-block', width: 165, height: 130 }} src="https://cloud.muaban.net/images/thumb-detail/2024/02/19/034/9fab57e6a5674be2848b0b08d70b5ca0.jpg" alt="" />
-                  <p style={{ position: 'absolute', top: 5, left: 10, backgroundColor: '#BF1D28', color: 'white', fontWeight: 650, fontSize: 12, borderRadius: 4, width: 57, textAlign: 'center' }}>Nổi bật</p>
-                  <p style={{ position: 'absolute', top: 0, right: 10 }}><FaRegHeart /></p>
-                </div>
-
-                <div className="information ">
-                  <p className='line-clamp'><Link> Công ty BB Giấy Kiến An cần tuyển lao động phổ thông </Link></p>
-                  <p className='text-danger ' style={{ fontWeight: 650, fontSize: 14 }}>8 Tỷ 500 triệu</p>
-
-                </div>
-                <div className="address">
-                  <p><IoMdClock /> Hôm nay</p>
-                  <p className='address_place'><MdOutlinePlace /> Quận 6, Thủ đức,HCM</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="col-md-3 mt-3 ">
-              <div className="mx-2 border-radius-5 news_outstanding_card border-radius-3" style={{ width: 190, backgroundColor: 'white' }}>
-                <div className="" style={{ position: 'relative', alignItems: 'center', alignContent: 'center', justifyContent: 'center', textAlign: 'center' }}>
-                  <img style={{ display: 'inline-block', width: 165, height: 130 }} src="https://cloud.muaban.net/images/thumb-detail/2024/02/19/034/9fab57e6a5674be2848b0b08d70b5ca0.jpg" alt="" />
-                  <p style={{ position: 'absolute', top: 5, left: 10, backgroundColor: '#BF1D28', color: 'white', fontWeight: 650, fontSize: 12, borderRadius: 4, width: 57, textAlign: 'center' }}>Nổi bật</p>
-                  <p style={{ position: 'absolute', top: 0, right: 10 }}><FaRegHeart /></p>
-                </div>
-
-                <div className="information ">
-                  <p className='line-clamp'><Link> Công ty BB Giấy Kiến An cần tuyển lao động phổ thông </Link></p>
-                  <p className='text-danger ' style={{ fontWeight: 650, fontSize: 14 }}>8 Tỷ 500 triệu</p>
-
-                </div>
-                <div className="address">
-                  <p><IoMdClock /> Hôm nay</p>
-                  <p className='address_place'><MdOutlinePlace /> Quận 6, Thủ đức,HCM</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="col-md-3 mt-3 ">
-              <div className="mx-2 border-radius-5 news_outstanding_card border-radius-3" style={{ width: 190, backgroundColor: 'white' }}>
-                <div className="" style={{ position: 'relative', alignItems: 'center', alignContent: 'center', justifyContent: 'center', textAlign: 'center' }}>
-                  <img style={{ display: 'inline-block', width: 165, height: 130 }} src="https://cloud.muaban.net/images/thumb-detail/2024/02/19/034/9fab57e6a5674be2848b0b08d70b5ca0.jpg" alt="" />
-                  <p style={{ position: 'absolute', top: 5, left: 10, backgroundColor: '#BF1D28', color: 'white', fontWeight: 650, fontSize: 12, borderRadius: 4, width: 57, textAlign: 'center' }}>Nổi bật</p>
-                  <p style={{ position: 'absolute', top: 0, right: 10 }}><FaRegHeart /></p>
-                </div>
-
-                <div className="information ">
-                  <p className='line-clamp'><Link> Công ty BB Giấy Kiến An cần tuyển lao động phổ thông </Link></p>
-                  <p className='text-danger ' style={{ fontWeight: 650, fontSize: 14 }}>8 Tỷ 500 triệu</p>
-
-                </div>
-                <div className="address">
-                  <p><IoMdClock /> Hôm nay</p>
-                  <p className='address_place'><MdOutlinePlace /> Quận 6, Thủ đức,HCM</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="col-md-3 mt-3 ">
-              <div className="mx-2 border-radius-5 news_outstanding_card border-radius-3" style={{ width: 190, backgroundColor: 'white' }}>
-                <div className="" style={{ position: 'relative', alignItems: 'center', alignContent: 'center', justifyContent: 'center', textAlign: 'center' }}>
-                  <img style={{ display: 'inline-block', width: 165, height: 130 }} src="https://cloud.muaban.net/images/thumb-detail/2024/02/19/034/9fab57e6a5674be2848b0b08d70b5ca0.jpg" alt="" />
-                  <p style={{ position: 'absolute', top: 5, left: 10, backgroundColor: '#BF1D28', color: 'white', fontWeight: 650, fontSize: 12, borderRadius: 4, width: 57, textAlign: 'center' }}>Nổi bật</p>
-                  <p style={{ position: 'absolute', top: 0, right: 10 }}><FaRegHeart /></p>
-                </div>
-
-                <div className="information ">
-                  <p className='line-clamp'><Link> Công ty BB Giấy Kiến An cần tuyển lao động phổ thông </Link></p>
-                  <p className='text-danger ' style={{ fontWeight: 650, fontSize: 14 }}>8 Tỷ 500 triệu</p>
-
-                </div>
-                <div className="address">
-                  <p><IoMdClock /> Hôm nay</p>
-                  <p className='address_place'><MdOutlinePlace /> Quận 6, Thủ đức,HCM</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="col-md-3 mt-3 ">
-              <div className="mx-2 border-radius-5 news_outstanding_card border-radius-3" style={{ width: 190, backgroundColor: 'white' }}>
-                <div className="" style={{ position: 'relative', alignItems: 'center', alignContent: 'center', justifyContent: 'center', textAlign: 'center' }}>
-                  <img style={{ display: 'inline-block', width: 165, height: 130 }} src="https://cloud.muaban.net/images/thumb-detail/2024/02/19/034/9fab57e6a5674be2848b0b08d70b5ca0.jpg" alt="" />
-                  <p style={{ position: 'absolute', top: 5, left: 10, backgroundColor: '#BF1D28', color: 'white', fontWeight: 650, fontSize: 12, borderRadius: 4, width: 57, textAlign: 'center' }}>Nổi bật</p>
-                  <p style={{ position: 'absolute', top: 0, right: 10 }}><FaRegHeart /></p>
-                </div>
-
-                <div className="information ">
-                  <p className='line-clamp'><Link> Công ty BB Giấy Kiến An cần tuyển lao động phổ thông </Link></p>
-                  <p className='text-danger ' style={{ fontWeight: 650, fontSize: 14 }}>8 Tỷ 500 triệu</p>
-
-                </div>
-                <div className="address">
-                  <p><IoMdClock /> Hôm nay</p>
-                  <p className='address_place'><MdOutlinePlace /> Quận 6, Thủ đức,HCM</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="col-md-3 mt-3 ">
-              <div className="mx-2 border-radius-5 news_outstanding_card border-radius-3" style={{ width: 190, backgroundColor: 'white' }}>
-                <div className="" style={{ position: 'relative', alignItems: 'center', alignContent: 'center', justifyContent: 'center', textAlign: 'center' }}>
-                  <img style={{ display: 'inline-block', width: 165, height: 130 }} src="https://cloud.muaban.net/images/thumb-detail/2024/02/19/034/9fab57e6a5674be2848b0b08d70b5ca0.jpg" alt="" />
-                  <p style={{ position: 'absolute', top: 5, left: 10, backgroundColor: '#BF1D28', color: 'white', fontWeight: 650, fontSize: 12, borderRadius: 4, width: 57, textAlign: 'center' }}>Nổi bật</p>
-                  <p style={{ position: 'absolute', top: 0, right: 10 }}><FaRegHeart /></p>
-                </div>
-
-                <div className="information ">
-                  <p className='line-clamp'><Link> Công ty BB Giấy Kiến An cần tuyển lao động phổ thông </Link></p>
-                  <p className='text-danger ' style={{ fontWeight: 650, fontSize: 14 }}>8 Tỷ 500 triệu</p>
-
-                </div>
-                <div className="address">
-                  <p><IoMdClock /> Hôm nay</p>
-                  <p className='address_place'><MdOutlinePlace /> Quận 6, Thủ đức,HCM</p>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
           <button onClick={() => handlemore()} className='btn btn-secondary my-3 d-flex' style={{ backgroundColor: '#ECF6FE', color: '#0671CA', margin: 'auto', alignItems: 'center' }}>Xen thêm tin <FaChevronRight className='mx-2' /></button>
         </div>
@@ -311,37 +244,37 @@ export default function Homepage() {
 
         {/* Bất động sản và cho thuê */}
         <div className="real_estate mt-4" style={{ borderRadius: 10, border: '1px solid white', backgroundColor: 'white', }}>
-          <h2 className='mt-3 px-2 ' style={{ fontWeight: 400, paddingRight: 15,fontSize:24,fontWeight:400, }}>Bất động sản bán và cho thuê</h2>
+          <h2 className='mt-3 px-2 ' style={{ fontWeight: 400, paddingRight: 15, fontSize: 24, fontWeight: 400, }}>Bất động sản bán và cho thuê</h2>
           <div className="real_estate_content" >
             <div className="real_estate_content_card" style={{ alignItems: 'center', position: 'relative' }}>
               <div className="row">
-                <Slickslider ref={ref} settings={settings2} />
+                <Slickslider ref={ref} settings={settings2} datahomepageproduct={productbdsvct} />
               </div>
             </div>
           </div>
           <button onClick={() => handlemore()} className='btn btn-secondary my-3 d-flex' style={{ backgroundColor: '#ECF6FE', color: '#0671CA', margin: 'auto', alignItems: 'center' }}>Xen thêm tin <FaChevronRight className='mx-2' /></button>
         </div>
 
-   {/* Việc làm nổi bật */}
+        {/* Việc làm nổi bật */}
         <div className="real_estate mt-4" style={{ borderRadius: 10, border: '1px solid white', backgroundColor: 'white', }}>
-          <h2 className='mt-3 px-2 ' style={{ fontWeight: 400, paddingRight: 15,fontSize:24,fontWeight:400, }}>Việc làm nổi bật</h2>
+          <h2 className='mt-3 px-2 ' style={{ fontWeight: 400, paddingRight: 15, fontSize: 24, fontWeight: 400, }}>Việc làm nổi bật</h2>
           <div className="real_estate_content" >
             <div className="real_estate_content_card" style={{ alignItems: 'center', position: 'relative' }}>
               <div className="row">
-                <Slickslider ref={ref} settings={settings2} />
+                <Slickslider ref={ref} settings={settings2} datahomepageproduct={productvlnb}/>
               </div>
             </div>
           </div>
           <button onClick={() => handlemore()} className='btn btn-secondary my-3 d-flex' style={{ backgroundColor: '#ECF6FE', color: '#0671CA', margin: 'auto', alignItems: 'center' }}>Xen thêm tin <FaChevronRight className='mx-2' /></button>
         </div>
 
-{/* Ô tô bán và cho thuê */}
+        {/* Ô tô bán và cho thuê */}
         <div className="real_estate mt-4" style={{ borderRadius: 10, border: '1px solid white', backgroundColor: 'white', }}>
-          <h2 className='mt-3 px-2 ' style={{ fontWeight: 400, paddingRight: 15,fontSize:24,fontWeight:400, }}> Ô tô bán và cho thuê </h2>
+          <h2 className='mt-3 px-2 ' style={{ fontWeight: 400, paddingRight: 15, fontSize: 24, fontWeight: 400, }}> Ô tô bán và cho thuê </h2>
           <div className="real_estate_content" >
             <div className="real_estate_content_card" style={{ alignItems: 'center', position: 'relative' }}>
               <div className="row">
-                <Slickslider ref={ref} settings={settings2} />
+                <Slickslider ref={ref} settings={settings2} datahomepageproduct={productotobanvachothue}/>
               </div>
             </div>
           </div>
@@ -350,11 +283,11 @@ export default function Homepage() {
 
         {/* Xe máy bán và cho thuê */}
         <div className="real_estate mt-4" style={{ borderRadius: 10, border: '1px solid white', backgroundColor: 'white', }}>
-          <h2 className='mt-3 px-2 ' style={{ fontWeight: 400, paddingRight: 15,fontSize:24,fontWeight:400, }}> Xe máy bán và cho thuê </h2>
+          <h2 className='mt-3 px-2 ' style={{ fontWeight: 400, paddingRight: 15, fontSize: 24, fontWeight: 400, }}> Xe máy bán và cho thuê </h2>
           <div className="real_estate_content" >
             <div className="real_estate_content_card" style={{ alignItems: 'center', position: 'relative' }}>
               <div className="row">
-                <Slickslider ref={ref} settings={settings2} />
+                <Slickslider ref={ref} settings={settings2} datahomepageproduct={productxmbvct}/>
               </div>
             </div>
           </div>

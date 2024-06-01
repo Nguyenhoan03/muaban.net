@@ -1,0 +1,26 @@
+const { Category } = require('../models'); 
+
+const getallcate = () => new Promise(async (resolve, reject) => {
+    try {
+        const response = await Category.findAll({
+            where: {
+                parent_category: 0 // Fixed typo: should be `parent_category`
+            }
+        });
+        console.log(response);
+        resolve({
+            err: response.length ? 0 : 1,
+            msg: response.length ? 'OK' : 'Failed to get categories.',
+            data: response // Changed `response` to `data` for clarity
+        });
+        
+    } catch (error) {
+        reject({
+            err: 1,
+            msg: 'Failed to get categories.',
+            error: error.message
+        });
+    }
+});
+
+module.exports = { getallcate };

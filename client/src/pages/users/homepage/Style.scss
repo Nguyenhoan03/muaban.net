@@ -10,6 +10,15 @@
     
 }
 
+.bodyhomepage_header_img a{
+    text-decoration: none;
+    color:black;
+}
+.bodyhomepage_header_img a p{
+    font-size: 15px;
+    line-height: 22px;
+    font-weight: 500;
+}
 
 .bodyhomepage_header{
    
@@ -142,3 +151,10 @@
   .prev-arrow:hover {
     opacity: 1; /* Khi hover vào, đặt opacity thành 1 */
   }
+
+
+  /* Custom CSS */
+.col-md-20 {
+    flex: 0 0 20%;
+    max-width: 20%;
+}

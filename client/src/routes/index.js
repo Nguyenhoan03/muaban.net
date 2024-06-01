@@ -5,6 +5,8 @@ import Notfoundpage from '.././pages/users/Notfoundpage/Notfoundpage'
 import Vieclam from '.././pages/users/Categorydetail/Categorydetail'
 import Detailpage from '.././pages/users/Detailpage/Detailpage'
 import Postnews from '.././pages/users/Postnews/Postnews'
+import Dashboard from '../pages/admin/admin_user/Dashboard/Dashboard'
+import Muadv from '../pages/admin/admin_user/Muadichvu/Muadichvu'
 export const routes = [
     {
         path:'/',
@@ -28,16 +30,30 @@ export const routes = [
         isShowHeader: true,
 
     },
+    
     {
-        path:'/category/title',
+        path:'/dang-tin',
+        page: Postnews,
+        isShowHeader: true,
+
+    },
+    {
+        path:'/mua-dich-vu',
+        page: Muadv,
+        isShowHeader: true,
+
+    },
+    {
+        path:'/:category/:title_newspost',
         page: Detailpage,
         isShowHeader: true,
 
     },
     {
-        path:'/dang-tin',
-        page: Postnews,
+        path:'/dashboard',
+        page: Dashboard,
         isShowHeader: true,
+        isShowleftadminuser: true,
 
     }
 ]
