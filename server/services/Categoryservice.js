@@ -17,7 +17,7 @@ const getallcate = () => new Promise(async (resolve, reject) => {
     } catch (error) {
         reject({
             err: 1,
-            msg: 'Failed to get categories.',
+            msg: 'lỗi category',
             error: error.message
         });
     }
