@@ -24,7 +24,7 @@ export default function Slickslider({ settings, datahomepageproduct = [] }) {
                   borderRadius: 7,
                   width: 170,
                   backgroundColor: 'white',
-                  border: '1px solid grey',
+                  border: '1px solid gray',
                   color:'black'
                 }}
               >

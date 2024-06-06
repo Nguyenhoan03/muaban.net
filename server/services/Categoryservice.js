@@ -17,7 +17,7 @@ const getallcate = () => new Promise(async (resolve, reject) => {
     } catch (error) {
         reject({
             err: 1,
-            msg: 'lỗi category',
+            msg: 'lỗi category dfsgdsg',
             error: error.message
         });
     }
