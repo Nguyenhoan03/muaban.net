@@ -21,7 +21,7 @@ export default function Headercompoment() {
             <ul className="header_links">
               <li><Link to="/dashboard"><FaRegNewspaper className="icon" /> Quản lý tin</Link></li>
               <li><Link to=""><IoIosNotifications className="icon" /> Thông báo</Link></li>
-              <li><Link to=""><RxAvatar className="icon" /> Đăng nhập</Link></li>
+              <li><Link to="/Login"><RxAvatar className="icon" /> Đăng nhập</Link></li>
             </ul>
           </div>
         </div>

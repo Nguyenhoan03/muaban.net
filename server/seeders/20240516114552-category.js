@@ -480,6 +480,330 @@ module.exports = {
         updatedAt: new Date()
       },
 
+// //subcategory type
+
+//       {
+//         namecategory: 'Bán Nhà',
+//         subcategory_type: 11,
+//         createdAt: new Date(),
+//         updatedAt: new Date()
+//       },
+      
+//       {
+//         namecategory: 'Bán căn hộ',
+//         subcategory_type: 11,
+//         createdAt: new Date(),
+//         updatedAt: new Date()
+//       },
+//       {
+//         namecategory: 'Bán đất',
+//         subcategory_type: 11,
+//         createdAt: new Date(),
+//         updatedAt: new Date()
+//       },
+// //cho thuê nhà đất
+//       {
+//         namecategory: 'Nhà',
+//         subcategory_type: 12,
+//         createdAt: new Date(),
+//         updatedAt: new Date()
+//       },
+//       {
+//         namecategory: 'Căn hộ, Chung cư , Khách sạn',
+//         subcategory_type: 12,
+//         createdAt: new Date(),
+//         updatedAt: new Date()
+//       },
+//       {
+//         namecategory: 'Nhà trọ,Phòng trọ',
+//         subcategory_type: 12,
+//         createdAt: new Date(),
+//         updatedAt: new Date()
+//       },
+//       {
+//         namecategory: 'Văn phòng,Mặt bằng',
+//         subcategory_type: 12,
+//         createdAt: new Date(),
+//         updatedAt: new Date()
+//       },
+//       {
+//         namecategory: 'Nhà xưởng,Kho , Đất',
+//         subcategory_type: 12,
+//         createdAt: new Date(),
+//         updatedAt: new Date()
+//       },
+//       //sang nhượng
+//       {
+//         namecategory: 'Sạp chợ',
+//         subcategory_type: 13,
+//         createdAt: new Date(),
+//         updatedAt: new Date()
+//       },
+//       {
+//         namecategory: 'Quán ăn, nhà hàng, khách sạn',
+//         subcategory_type: 13,
+//         createdAt: new Date(),
+//         updatedAt: new Date()
+//       },
+//       {
+//         namecategory: 'Quán coffee , đồ uống',
+//         subcategory_type: 13,
+//         createdAt: new Date(),
+//         updatedAt: new Date()
+//       },
+//       {
+//         namecategory: 'Shophouse',
+//         subcategory_type: 13,
+//         createdAt: new Date(),
+//         updatedAt: new Date()
+//       },
+//       {
+//         namecategory: 'Shop thời trang , Tiệm tóc, Spa',
+//         subcategory_type: 13,
+//         createdAt: new Date(),
+//         updatedAt: new Date()
+//       },
+//       {
+//         namecategory: 'Sang nhượng khác',
+//         subcategory_type: 13,
+//         createdAt: new Date(),
+//         updatedAt: new Date()
+//       },
+//       //việc làm 
+//       //Tuyển nhân viên
+      
+//       {
+//         namecategory: 'Công nhân',
+//         subcategory_type: 15,
+//         createdAt: new Date(),
+//         updatedAt: new Date()
+//       },
+//       {
+//         namecategory: 'Lái xe,phụ xe',
+//         subcategory_type: 15,
+//         createdAt: new Date(),
+//         updatedAt: new Date()
+//       },
+//       {
+//         namecategory: 'Giao chở hàng',
+//         subcategory_type: 15,
+//         createdAt: new Date(),
+//         updatedAt: new Date()
+//       },
+//       {
+//         namecategory: 'Giúp việc tạp vụ',
+//         subcategory_type: 15,
+//         createdAt: new Date(),
+//         updatedAt: new Date()
+//       },
+//       {
+//         namecategory: 'An ninh bảo vệ',
+//         subcategory_type: 15,
+//         createdAt: new Date(),
+//         updatedAt: new Date()
+//       },
+//       {
+//         namecategory: 'Bán hàng',
+//         subcategory_type: 15,
+//         createdAt: new Date(),
+//         updatedAt: new Date()
+//       },
+//       {
+//         namecategory: 'Việc làm thời vụ',
+//         subcategory_type: 15,
+//         createdAt: new Date(),
+//         updatedAt: new Date()
+//       },
+//       {
+//         namecategory: 'Kế toán',
+//         subcategory_type: 15,
+//         createdAt: new Date(),
+//         updatedAt: new Date()
+//       },
+//       {
+//         namecategory: 'Kinh doanh',
+//         subcategory_type: 15,
+//         createdAt: new Date(),
+//         updatedAt: new Date()
+//       },
+//       {
+//         namecategory: 'May mặc,giày da',
+//         subcategory_type: 15,
+//         createdAt: new Date(),
+//         updatedAt: new Date()
+//       },
+//       {
+//         namecategory: 'Nhân viên tư vấn',
+//         subcategory_type: 15,
+//         createdAt: new Date(),
+//         updatedAt: new Date()
+//       },
+//       {
+//         namecategory: 'Việc làm bán thời gian',
+//         subcategory_type: 15,
+//         createdAt: new Date(),
+//         updatedAt: new Date()
+//       },
+//       {
+//         namecategory: 'Hành chính nhân sự',
+//         subcategory_type: 15,
+//         createdAt: new Date(),
+//         updatedAt: new Date()
+//       },
+      
+//       // tìm việc làm
+//       {
+//         namecategory: 'Bán hàng',
+//         subcategory_type: 16,
+//         createdAt: new Date(),
+//         updatedAt: new Date()
+//       },
+//       {
+//         namecategory: 'Người giúp việc tạp vụ',
+//         subcategory_type: 16,
+//         createdAt: new Date(),
+//         updatedAt: new Date()
+//       },
+//       {
+//         namecategory: 'Lái xe , phụ xe',
+//         subcategory_type: 16,
+//         createdAt: new Date(),
+//         updatedAt: new Date()
+//       },
+//       {
+//         namecategory: 'Kế toán',
+//         subcategory_type: 16,
+//         createdAt: new Date(),
+//         updatedAt: new Date()
+//       },
+//       {
+//         namecategory: 'An ninh bảo vệ',
+//         subcategory_type: 16,
+//         createdAt: new Date(),
+//         updatedAt: new Date()
+//       },
+//       {
+//         namecategory: 'May mặc , giày da',
+//         subcategory_type: 16,
+//         createdAt: new Date(),
+//         updatedAt: new Date()
+//       },
+//       {
+//         namecategory: 'Nhân viên tư vấn',
+//         subcategory_type: 16,
+//         createdAt: new Date(),
+//         updatedAt: new Date()
+//       },
+//       {
+//         namecategory: 'Giao chở hàng',
+//         subcategory_type: 16,
+//         createdAt: new Date(),
+//         updatedAt: new Date()
+//       },
+//       {
+//         namecategory: 'Hành chính nhân sự',
+//         subcategory_type: 16,
+//         createdAt: new Date(),
+//         updatedAt: new Date()
+//       },
+//       {
+//         namecategory: 'Thợ cắt tóc gội đầu',
+//         subcategory_type: 16,
+//         createdAt: new Date(),
+//         updatedAt: new Date()
+//       },
+//       {
+//         namecategory: 'Nhân viên khách sạn',
+//         subcategory_type: 16,
+//         createdAt: new Date(),
+//         updatedAt: new Date()
+//       },
+//       {
+//         namecategory: 'Thợ điện, nước',
+//         subcategory_type: 16,
+//         createdAt: new Date(),
+//         updatedAt: new Date()
+//       },
+//       {
+//         namecategory: 'Nhân viên massage',
+//         subcategory_type: 16,
+//         createdAt: new Date(),
+//         updatedAt: new Date()
+//       },
+//       {
+//         namecategory: 'Y dược',
+//         subcategory_type: 16,
+//         createdAt: new Date(),
+//         updatedAt: new Date()
+//       },
+
+//       // ô tô
+//       //bán ô tô
+//       {
+//         namecategory: 'Toyota',
+//         subcategory_type: 19,
+//         createdAt: new Date(),
+//         updatedAt: new Date()
+//       },
+//       {
+//         namecategory: 'Ford',
+//         subcategory_type: 19,
+//         createdAt: new Date(),
+//         updatedAt: new Date()
+//       },
+//       {
+//         namecategory: 'Mitsubishi',
+//         subcategory_type: 19,
+//         createdAt: new Date(),
+//         updatedAt: new Date()
+//       },
+//       {
+//         namecategory: 'Hyundai',
+//         subcategory_type: 19,
+//         createdAt: new Date(),
+//         updatedAt: new Date()
+//       },
+//       {
+//         namecategory: 'Honda',
+//         subcategory_type: 19,
+//         createdAt: new Date(),
+//         updatedAt: new Date()
+//       },
+//       {
+//         namecategory: 'Kia',
+//         subcategory_type: 19,
+//         createdAt: new Date(),
+//         updatedAt: new Date()
+//       },
+//       {
+//         namecategory: 'Mazda',
+//         subcategory_type: 19,
+//         createdAt: new Date(),
+//         updatedAt: new Date()
+//       },
+//       {
+//         namecategory: 'Mercedes Benz',
+//         subcategory_type: 19,
+//         createdAt: new Date(),
+//         updatedAt: new Date()
+//       },
+//       {
+//         namecategory: 'BMW',
+//         subcategory_type: 19,
+//         createdAt: new Date(),
+//         updatedAt: new Date()
+//       },
+//       {
+//         namecategory: 'Daewoo',
+//         subcategory_type: 19,
+//         createdAt: new Date(),
+//         updatedAt: new Date()
+//       },
+
+//       //xe máy
+//       //bán xe máy
+     
+
     ], {});
   },
 

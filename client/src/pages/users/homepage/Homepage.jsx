@@ -102,6 +102,8 @@ export default function Homepage() {
 
     fetchproductvips();
 }, []);
+console.log(productpostvips)  
+
 
 
 const [productbdsvct,setproductbdsvct] = useState([]);

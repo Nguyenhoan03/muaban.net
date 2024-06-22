@@ -7,6 +7,7 @@ import Detailpage from '.././pages/users/Detailpage/Detailpage'
 import Postnews from '.././pages/users/Postnews/Postnews'
 import Dashboard from '../pages/admin/admin_user/Dashboard/Dashboard'
 import Muadv from '../pages/admin/admin_user/Muadichvu/Muadichvu'
+import Login from '../pages/users/Login/Login'
 export const routes = [
     {
         path:'/',
@@ -55,5 +56,10 @@ export const routes = [
         isShowHeader: true,
         isShowleftadminuser: true,
 
+    },
+    {
+        path:'/login',
+        page: Login,
+        isShowHeader:true,
     }
 ]

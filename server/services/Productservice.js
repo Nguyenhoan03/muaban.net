@@ -1,21 +1,24 @@
 const { Product } = require('../models');
-const { Op } = require('sequelize');
+const { Op, col } = require('sequelize'); // Import 'col' từ 'sequelize'
 const { Category } = require('../models');
 
-const Productservicevips = () => new Promise(async (resolve, reject) => {
+const Productservicevips = async () => {
     try {
+      
         const response = await Product.findAll({
-            include: {
-                model: Category,
-                required: true,
-                attributes: ['namecategory']
-            },
+            include: [
+              { model: Category, as: 'ChildCategory', raw: true },
+              { model: Category, as: 'ParentCategory', raw: true }
+            ],
             where: { loaidv: 'VIP S' },
             attributes: [
-                'title', 'img', 'diachi', 'luongtoithieu', 'luongtoida','createdAt'
-            ]
-        });
-
+              'ChildCategory', 'ParentCategory', 'title', 'img', 'diachi', 'luongtoithieu', 'luongtoida', 'createdAt'
+            ],
+            raw: true // Fetch raw data
+          });
+          
+         
+        
         const bdsvct = await Product.findAll({
             include: {
                 model: Category,
@@ -24,7 +27,7 @@ const Productservicevips = () => new Promise(async (resolve, reject) => {
             },
             where: { category_id: 1 },
             attributes: [
-                'title', 'img', 'diachi', 'luongtoithieu', 'luongtoida','createdAt'
+                'category_child_id', 'title', 'img', 'diachi', 'luongtoithieu', 'luongtoida', 'createdAt'
             ]
         });
 
@@ -36,7 +39,7 @@ const Productservicevips = () => new Promise(async (resolve, reject) => {
             },
             where: { category_id: 2 },
             attributes: [
-                'title', 'img', 'diachi', 'luongtoithieu', 'luongtoida','createdAt'
+                'category_child_id', 'title', 'img', 'diachi', 'luongtoithieu', 'luongtoida', 'createdAt'
             ]
         });
 
@@ -54,7 +57,7 @@ const Productservicevips = () => new Promise(async (resolve, reject) => {
                 ]
             },
             attributes: [
-                'title', 'img', 'diachi', 'luongtoithieu', 'luongtoida','createdAt'
+                'category_child_id', 'title', 'img', 'diachi', 'luongtoithieu', 'luongtoida', 'createdAt'
             ]
         });
 
@@ -71,7 +74,7 @@ const Productservicevips = () => new Promise(async (resolve, reject) => {
                 }
             },
             attributes: [
-                'title', 'img', 'diachi', 'luongtoithieu', 'luongtoida','createdAt'
+                'category_child_id', 'title', 'img', 'diachi', 'luongtoithieu', 'luongtoida', 'createdAt'
             ]
         });
 
@@ -83,17 +86,17 @@ const Productservicevips = () => new Promise(async (resolve, reject) => {
             xemaybanvachothue
         };
 
-        resolve({
+        return {
             err: response.length ? 0 : 1,
             msg: response.length ? 'OK' : 'Failed to get categories.',
             data
-        });
+        };
     } catch (error) {
-        reject({
+        return {
             err: -1,
             msg: 'Failed to retrieve VIP products: ' + error.message
-        });
+        };
     }
-});
+};
 
 module.exports = { Productservicevips };

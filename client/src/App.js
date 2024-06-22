@@ -13,7 +13,6 @@ function App() {
           const Page = route.page;
           const Layout = route.isShowHeader ? Defalutcompoment : Fragment;
           const Layoutleftadmin_user = route.isShowleftadminuser ? SideBaradmin_user : Fragment;
-
           return (
             <Route
               key={route.path}

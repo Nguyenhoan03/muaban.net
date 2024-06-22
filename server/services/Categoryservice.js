@@ -4,7 +4,7 @@ const getallcate = () => new Promise(async (resolve, reject) => {
     try {
         const response = await Category.findAll({
             where: {
-                parent_category: 0 // Fixed typo: should be `parent_category`
+                parent_category: null // Fixed typo: should be `parent_category`
             }
         });
         console.log(response);
